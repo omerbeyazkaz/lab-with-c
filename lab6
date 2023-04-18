@@ -1,0 +1,32 @@
+#include <iostream>
+#include <cmath>
+
+double sumSeries(int n, int k) {
+    if (k > n) {
+        return 0;
+    }
+    double term = pow(-1, k) / k;
+    return term + sumSeries(n, k + 1);
+}
+
+double sumSeries(int k) {
+    int n;
+    std::cout << "Enter the value of n: ";
+    std::cin >> n;
+    if (k > n) {
+        return 0;
+    }
+    double term = pow(-1, k) / k;
+    return term + sumSeries(k + 1);
+}
+
+int main() {
+    int n;
+    std::cout << "Enter the value of n: ";
+    std::cin >> n;
+    double sum = sumSeries(n, 1);
+    std::cout << "Sum of the series: " << sum << std::endl;
+    double sum2 = sumSeries(1);
+    std::cout << "Sum of the series: " << sum2 << std::endl;
+    return 0;
+}
